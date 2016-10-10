@@ -5,9 +5,9 @@ import './greeting.css';
 const Greeting = ({ name }) => {
   return (
     <div className="greeting">
-      Hello, {name}! Fuck yeah
+      <span className="greetingText">Hello, {name}! Fuck yeah</span>
       <br />
-      
+
       <Button>Default</Button>
 
       {/* Provides extra visual weight and identifies the primary action in a set of buttons */}
