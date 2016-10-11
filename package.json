@@ -42,6 +42,7 @@
     "font-awesome-loader": "^1.0.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^16.0.1",
     "node-sass": "^3.10.1",
     "postcss-loader": "^0.13.0",
@@ -71,7 +72,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-       "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "^.+\\.(css|less|scss)$": "identity-obj-proxy"
     }
   }
