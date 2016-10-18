@@ -7,8 +7,7 @@
     "reset": "rimraf dist/* && rimraf node_modules/* && npm install",
     "deep-clean": "rimraf dist/* && rimraf node_modules/*",
     "clean": "rimraf dist/*",
-    "start": "cross-env NODE_ENV=development babel-node ./webpack-dev-server.js",
-    "start-express": "cross-env NODE_ENV=development babel-node ./express-dev-server.js",
+    "start": "cross-env NODE_ENV=development babel-node ./express-dev-server.js",
     "build-dev": "npm run clean && cross-env NODE_ENV=development webpack --config config/webpack.config.dev.babel.js",
     "build-prod": "npm run clean && cross-env NODE_ENV=production webpack --config config/webpack.config.prod.babel.js",
     "test": "jest"

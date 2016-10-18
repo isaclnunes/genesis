@@ -11,8 +11,8 @@ const app = express();
 const compiler = webpack(config);
 
 // Apply CLI dashboard for your webpack dev server
-const dashboard = new Dashboard();
-compiler.apply(new DashboardPlugin(dashboard.setData));
+// const dashboard = new Dashboard();
+// compiler.apply(new DashboardPlugin(dashboard.setData));
 
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3000;
@@ -23,10 +23,12 @@ function log() {
 }
 
 app.use(webpackDevMiddleware(compiler, {
-  noInfo: true,
   publicPath: config.output.publicPath,
-  quiet: true,
-  historyApiFallback: true
+  stats: {
+    colors: true
+  },
+  historyApiFallback: true,
+  open: true
 }));
 
 app.use(webpackHotMiddleware(compiler));

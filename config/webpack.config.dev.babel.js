@@ -9,8 +9,8 @@ module.exports = merge(config, {
   devtool: 'source-map',
   entry: {
     application: [
-      'webpack-dev-server/client?http://127.0.0.1:3000',
-      'webpack/hot/only-dev-server',
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client',
       'font-awesome-loader',
       'bootstrap-loader/extractStyles',
       './src/index.jsx'
