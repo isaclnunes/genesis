@@ -5,7 +5,7 @@ import './greeting.css';
 const Greeting = ({ name }) => {
   return (
     <div className="greeting">
-      <span className="greetingText">Hello, {name}! test</span>
+      <span className="greetingText">Hello, {name}!</span>
       <br />
 
       <Button>Default</Button>

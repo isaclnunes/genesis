@@ -8,12 +8,12 @@ it('Greeting displays correct name', () => {
     <Greeting name="Tiago" />
   );
 
-  expect(greeting.find('span.greetingText').text()).toEqual('Hello, Tiago! Fuck yeah');
+  expect(greeting.find('span.greetingText').text()).toEqual('Hello, Tiago!');
 
   // Render a Greeting component in the document
   const greeting2 = shallow(
     <Greeting name="Manuel" />
   );
 
-  expect(greeting2.find('span.greetingText').text()).toEqual('Hello, Manuel! Fuck yeah');
+  expect(greeting2.find('span.greetingText').text()).toEqual('Hello, Manuel!');
 });
