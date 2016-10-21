@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="app-container">
-        <h2>Pina React Starter Kit - Tiago</h2>
+        <h2>Tiago's React Starter Kit</h2>
         <Greeting name="Tiago!" />
         {this.props.children}
       </div>

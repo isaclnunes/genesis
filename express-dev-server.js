@@ -7,43 +7,48 @@ import webpackHotMiddleware   from 'webpack-hot-middleware'
 import Dashboard              from 'webpack-dashboard'
 import DashboardPlugin        from 'webpack-dashboard/plugin'
 
-const app = express();
-const compiler = webpack(config);
+const app           = express();
+const compiler      = webpack(config);
+const host          = process.env.HOST || 'localhost';
+const isDevelopment = process.env.NODE_ENV !== 'production';
+const HTML_FILE     = path.join(__dirname, './src/index.html');
+const HTML_DIST_FILE     = path.join(__dirname, './dist/index.html');
+const DIST_DIR      = path.join(__dirname, "dist");
 
 // Apply CLI dashboard for your webpack dev server
 // const dashboard = new Dashboard();
 // compiler.apply(new DashboardPlugin(dashboard.setData));
 
-const host = process.env.HOST || 'localhost';
-const port = process.env.PORT || 3000;
-
 function log() {
-  arguments[0] = '\nWebpack: ' + arguments[0];
+  arguments[0] = '\nServer: ' + arguments[0];
   console.log.apply(console, arguments);
 }
 
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-  stats: {
-    colors: true
-  },
-  historyApiFallback: true,
-  open: true
-}));
+app.set("port", process.env.PORT || 3000);
 
-app.use(webpackHotMiddleware(compiler));
+if (isDevelopment) {
+  // Use devMiddleware if in development
+  app.use(webpackDevMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+    stats: {
+      colors: true
+    },
+    historyApiFallback: true
+  }));
+  // Use HMR if in development
+  app.use(webpackHotMiddleware(compiler));
 
-app.get('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Credentials', false);
-  res.sendFile(path.join(__dirname, './src/index.html'));
-});
+  app.get("*", (req, res) => res.sendFile(HTML_FILE));
+} else {
+  app.use(express.static(DIST_DIR));
+  app.get("*", (req, res) => res.sendFile(HTML_DIST_FILE));
+}
 
-app.listen(port, host, (err) => {
+app.listen(app.get("port"), (err) => {
   if (err) {
     log(err);
     return;
   }
 
-  log('🚧  App is listening at http://%s:%s', host, port);
+  log('App is listening at http://localhost:%s', app.get("port"));
 });
