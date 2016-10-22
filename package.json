@@ -1,10 +1,22 @@
 {
   "name": "genesis",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple ReactJS starter kit that I've put together in order to figure out life in general",
+  "author": "Tiago Pina <tiagopina@gmail.com> (http://github.com/tpina)",
+  "license": "MIT",
+  "keywords": [
+    "babel",
+    "boilerplate",
+    "express",
+    "hot reloading",
+    "react",
+    "react-hot-reloader",
+    "starter",
+    "webpack"
+  ],
   "main": "index.js",
   "scripts": {
-    "reset": "rimraf dist/* && rimraf node_modules/* && npm install",
+    "reset": "rimraf dist/* && rimraf node_modules/* && yarn",
     "deep-clean": "rimraf dist/* && rimraf node_modules/*",
     "clean": "rimraf dist/*",
     "start": "cross-env NODE_ENV=development babel-node ./express-dev-server.js",
@@ -12,8 +24,6 @@
     "build-prod": "npm run clean && cross-env NODE_ENV=production webpack --config config/webpack.config.prod.babel.js",
     "test": "jest"
   },
-  "author": "Tiago Pina",
-  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-cli": "^6.16.0",

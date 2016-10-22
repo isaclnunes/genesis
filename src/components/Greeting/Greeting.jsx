@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
-import { Button } from 'react-bootstrap';
+
+import renderButtons from './renderButtons';
+
 import './greeting.css';
 
 const Greeting = ({ name }) => {
@@ -7,27 +9,12 @@ const Greeting = ({ name }) => {
     <div className="greeting">
       <span className="greetingText">Hello, {name}!</span>
       <br />
-
-      <Button>Default</Button>
-
-      {/* Provides extra visual weight and identifies the primary action in a set of buttons */}
-      <Button bsStyle="primary">Primary</Button>
-
-      {/* Indicates a successful or positive action */}
-      <Button bsStyle="success">Success</Button>
-
-      {/* Contextual button for informational alert messages */}
-      <Button bsStyle="info">Info</Button>
-
-      {/* Indicates caution should be taken with this action */}
-      <Button bsStyle="warning">Warning</Button>
-
-      {/* Indicates a dangerous or potentially negative action */}
-      <Button bsStyle="danger">Danger</Button>
-
-      {/* Deemphasize a button by making it look like a link while maintaining button behavior */}
-      <Button bsStyle="link">Link</Button>
-
+      <span>Here are some buttons</span>
+      <br />
+      {renderButtons()}
+      <br />
+      <span>And some icons</span>
+      <br />
       <i className="fa fa-linkedin" />
       <i className="fa fa-github" />
       <i className="fa fa-twitter" />
