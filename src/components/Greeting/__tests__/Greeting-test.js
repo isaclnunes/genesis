@@ -1,5 +1,9 @@
+/* eslint react/jsx-filename-extension:0 */
+/* eslint import/no-extraneous-dependencies: 0 */
+
 import React from 'react';
-import {shallow} from 'enzyme';
+import { expect } from 'jest';
+import { shallow } from 'enzyme';
 import Greeting from '../Greeting';
 
 it('Greeting displays correct name', () => {

@@ -42,10 +42,17 @@ The main difference is that the production bundle is optimized to production.
 ```bash
 npm run build-dev
 ```
-
+**Build and run the production bundle**
+```bash
+npm run serve
+```
 **Build the production bundle**
 ```bash
 npm run build-prod
+```
+**Build and run the production bundle**
+```bash
+npm run serve-dist
 ```
 
 ### Running tests
@@ -53,6 +60,11 @@ npm run build-prod
 I have done some very basic testing. To run them:
 ```bash
 npm run test
+```
+
+### Running lint on src folder
+```bash
+npm run lint
 ```
 
 ## Stack/Features
@@ -64,9 +76,9 @@ npm run test
 &nbsp; &nbsp; ✓ Hot Module Replacement ([HMR](https://webpack.github.io/docs/hot-module-replacement.html)) /w [React Hot Loader](http://gaearon.github.io/react-hot-loader/)<br>
 &nbsp; &nbsp; ✓ Integration with [Bootstrap](http://getbootstrap.com/) via [React Bootstrap](https://react-bootstrap.github.io/).<br>
 &nbsp; &nbsp; ✓ [Font Awesome](http://fontawesome.io/) via [Font Awersome Loader](https://github.com/shakacode/font-awesome-loader). (see [`webpack.config.js`](webpack.config.js))<br>
-&nbsp; &nbsp; ✓ Linting
-&nbsp; &nbsp; ✓ Express
-&nbsp; &nbsp; ✓ Testing with [Jest](https://facebook.github.io/jest/), [Enzyme](http://airbnb.io/enzyme/) and [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html)
+&nbsp; &nbsp; ✓ Linting<br>
+&nbsp; &nbsp; ✓ Express<br>
+&nbsp; &nbsp; ✓ Testing with [Jest](https://facebook.github.io/jest/), [Enzyme](http://airbnb.io/enzyme/) and [react-addons-test-utils](https://facebook.github.io/react/docs/test-utils.html)<br>
 
 ## License
 [MIT license](http://opensource.org/licenses/mit-license.php)

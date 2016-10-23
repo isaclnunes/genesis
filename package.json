@@ -19,9 +19,12 @@
     "reset": "rimraf dist/* && rimraf node_modules/* && yarn",
     "deep-clean": "rimraf dist/* && rimraf node_modules/*",
     "clean": "rimraf dist/*",
+    "lint": "eslint ./src",
     "start": "cross-env NODE_ENV=development babel-node ./express-dev-server.js",
     "build-dev": "npm run clean && cross-env NODE_ENV=development webpack --config config/webpack.config.dev.babel.js",
     "build-prod": "npm run clean && cross-env NODE_ENV=production webpack --config config/webpack.config.prod.babel.js",
+    "serve": "npm run build-dev && cross-env NODE_ENV=development babel-node express-dev-server.js",
+    "serve-dist": "npm run build-prod && cross-env NODE_ENV=production babel-node express-dev-server.js",
     "test": "jest"
   },
   "devDependencies": {

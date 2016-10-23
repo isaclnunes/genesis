@@ -6,11 +6,7 @@ import { PATHS, LOADERS } from './configs'
 
 var isDevelopment = process.env.NODE_ENV !== 'production';
 
-if (isDevelopment) {
-  console.log('#### Building DEVELOPMENT bundle ####\n');
-} else {
-  console.log('#### Building PRODUCTION bundle ####\n');
-}
+console.log(isDevelopment ? '#### development environment ####\n' : '#### production environment ####\n');
 
 module.exports = {
   output: {
