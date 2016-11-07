@@ -1,3 +1,6 @@
+# This is a WIP
+I'm updating this as I figure life out
+
 ## TL;DR;
 (Another) Starter Kit for ReactJS. Check the Stack/Features section of this README file. Clone it, fork it, contribute to it if you like.
 

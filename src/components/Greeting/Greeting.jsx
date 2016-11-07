@@ -4,10 +4,10 @@ import renderButtons from './renderButtons';
 
 import './greeting.css';
 
-const Greeting = ({ name }) => {
+const Greeting = ({ route }) => {
   return (
     <div className="greeting">
-      <span className="greetingText">Hello, {name}!</span>
+      <span className="greetingText">Hello, {route.name}!</span>
       <br />
       <span>Here are some buttons</span>
       <br />
@@ -24,7 +24,7 @@ const Greeting = ({ name }) => {
 };
 
 Greeting.propTypes = {
-  name: PropTypes.string
+  route: PropTypes.shape({})
 };
 
 export default Greeting;
