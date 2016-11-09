@@ -4,6 +4,7 @@ import ExtractTextPlugin  from 'extract-text-webpack-plugin'
 import { loaders }        from './webpack-loaders'
 import { PATHS }          from './configs'
 import autoprefixer       from 'autoprefixer'
+import OpenBrowserPlugin from 'open-browser-webpack-plugin'
 
 let env = process.env.NODE_ENV
 
@@ -59,6 +60,7 @@ let loadPlugins = (env) => {
 			plugins.push(new webpack.HotModuleReplacementPlugin())
       plugins.push(new ExtractTextPlugin({ filename: 'pina.css', allChunks: true }))
 			plugins.push(new webpack.NoErrorsPlugin())
+      plugins.push(new OpenBrowserPlugin({ url: 'http://localhost:3000' }))
 			break
 	}
   plugins.push(new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery" }))

@@ -7,10 +7,8 @@ import webpackHotMiddleware from 'webpack-hot-middleware'
 // config.plugins.push(new DashboardPlugin());
 const compiler = webpack(config);
 
-let bundleStart = null;
 compiler.plugin('compile', () => {
-  console.log('Bundling...');
-  bundleStart = Date.now();
+  console.log('Bundling... this will take a few seconds');
 });
 
 const server = new WebpackDevServer(
@@ -24,7 +22,8 @@ const server = new WebpackDevServer(
     inline: true,
     historyApiFallback: true,
     headers: {'Access-Control-Allow-Origin': '*'},
-    hot: true
+    hot: true,
+    quiet: true
   }
 )
 

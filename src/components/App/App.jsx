@@ -8,7 +8,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <h2>Tiago&apos;s React Starter Kit - test</h2>
+        <h2>Tiago&apos;s ReactJS Starter Kit</h2>
+        <Link to="/">Root</Link>&nbsp;
         <Link to="/hello">Hello</Link>
         {this.props.children}
       </div>
