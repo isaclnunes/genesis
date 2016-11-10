@@ -30,7 +30,7 @@ const server = new WebpackDevServer(
 server.use(webpackHotMiddleware(compiler));
 
 compiler.plugin('done', () => {
-  server.listen(3000, 'localhost', (err) => {
+  server.listen(3000, (err) => {
     if (err) {
       console.log(err);
     }
