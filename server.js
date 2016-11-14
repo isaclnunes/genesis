@@ -22,8 +22,7 @@ const server = new WebpackDevServer(
     inline: true,
     historyApiFallback: true,
     headers: {'Access-Control-Allow-Origin': '*'},
-    hot: true,
-    quiet: true
+    hot: true
   }
 )
 

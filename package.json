@@ -63,6 +63,9 @@
     "react-addons-test-utils": "^15.3.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^15.3.2",
+    "redux-devtools": "^3.3.1",
+    "redux-devtools-dock-monitor": "^1.1.1",
+    "redux-devtools-log-monitor": "^1.1.1",
     "resolve-url-loader": "^1.6.0",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
@@ -76,6 +79,7 @@
     "webpack-merge": "^0.15.0"
   },
   "dependencies": {
+    "axios": "^0.15.2",
     "bootstrap-sass": "^3.3.7",
     "express": "^4.14.0",
     "font-awesome": "^4.6.3",
@@ -83,7 +87,13 @@
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.5",
     "react-dom": "^15.3.2",
-    "react-router": "^3.0.0"
+    "react-redux": "^4.4.5",
+    "react-router": "^3.0.0",
+    "react-router-redux": "^4.0.7",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
+    "redux-promise-middleware": "^4.1.0",
+    "redux-thunk": "^2.1.0"
   },
   "jest": {
     "moduleNameMapper": {
