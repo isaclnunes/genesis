@@ -3,10 +3,10 @@ import { Router, browserHistory } from 'react-router';
 import { Provider }               from 'react-redux';
 import { syncHistoryWithStore }   from 'react-router-redux';
 
-import routes                     from '../../routes';
+import DevTools                   from '../utils/DevTools/DevTools';
 
-import DevTools from '../DevTools/DevTools';
-import configureStore             from '../../store/configureStore';
+import routes                     from '../routes';
+import configureStore             from '../store/configureStore';
 
 const store = configureStore();
 

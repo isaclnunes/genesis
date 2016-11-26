@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { persistState } from 'redux-devtools'; /* eslint import/no-extraneous-dependencies: 0 */
-import promise                                           from 'redux-promise-middleware';
+import { persistState }                          from 'redux-devtools'; /* eslint import/no-extraneous-dependencies: 0 */
+import promise                                   from 'redux-promise-middleware';
 import thunk                                     from 'redux-thunk';
 import createLogger                              from 'redux-logger';
 import rootReducer                               from '../reducers';
-import DevTools                                  from '../components/DevTools/DevTools';
+import DevTools                                  from '../utils/DevTools/DevTools';
 
 const enhancer = compose(
   persistState(

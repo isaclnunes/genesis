@@ -1,18 +1,19 @@
-import webpack            from 'webpack'
-import HtmlWebpackPlugin  from 'html-webpack-plugin'
-import ExtractTextPlugin  from 'extract-text-webpack-plugin'
-import { loaders }        from './webpack-loaders'
-import { PATHS }          from './configs'
-import autoprefixer       from 'autoprefixer'
-import OpenBrowserPlugin from 'open-browser-webpack-plugin'
+import webpack            from 'webpack';
+import HtmlWebpackPlugin  from 'html-webpack-plugin';
+import ExtractTextPlugin  from 'extract-text-webpack-plugin';
+import autoprefixer       from 'autoprefixer';
+import OpenBrowserPlugin  from 'open-browser-webpack-plugin';
 
-let env = process.env.NODE_ENV
+import loaders            from './webpack-loaders';
+import PATHS              from './configs';
 
-let loadPlugins = (env) => {
+const env = process.env.NODE_ENV;
+
+const loadPlugins = () => {
   const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify(env),
     __DEV__: env === 'development'
-  }
+  };
 
   const plugins = [
     new webpack.NoErrorsPlugin(),
@@ -20,7 +21,7 @@ let loadPlugins = (env) => {
     new webpack.DefinePlugin(GLOBALS),
     new HtmlWebpackPlugin({
       inject: true,
-      template: PATHS.src + '/index.html'
+      template: `${PATHS.src}/index.html`
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -40,65 +41,65 @@ let loadPlugins = (env) => {
         ]
       }
     })
-  ]
+  ];
 
   switch (env) {
-		case 'production':
-			plugins.push(new webpack.optimize.DedupePlugin())
-			plugins.push(new webpack.optimize.UglifyJsPlugin({
+    case 'production':
+      plugins.push(new webpack.optimize.DedupePlugin());
+      plugins.push(new webpack.optimize.UglifyJsPlugin({
         minimize: true,
         compress: {
           warnings: false,
-          'screw_ie8': true
+          screw_ie8: true
         },
         output: {
           comments: false
         }
-      }))
-			break
-		case 'development':
-			plugins.push(new webpack.HotModuleReplacementPlugin())
-      plugins.push(new ExtractTextPlugin({ filename: 'pina.css', allChunks: true }))
-			plugins.push(new webpack.NoErrorsPlugin())
-      plugins.push(new OpenBrowserPlugin({ url: 'http://localhost:3000' }))
-			break
-	}
-  plugins.push(new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery" }))
-
+      }));
+      break;
+    case 'development':
+      plugins.push(new webpack.HotModuleReplacementPlugin());
+      plugins.push(new ExtractTextPlugin({ filename: 'pina.css', allChunks: true }));
+      plugins.push(new webpack.NoErrorsPlugin());
+      plugins.push(new OpenBrowserPlugin({ url: 'http://localhost:3000' }));
+      break;
+    default:
+      break;
+  }
+  plugins.push(new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }));
   return plugins;
-}
+};
 
-let getAppEntryPoints = (env) => {
-	const entry = [
+const getAppEntryPoints = () => {
+  const entry = [
     'font-awesome-loader',
     'bootstrap-loader/extractStyles',
     './src/index.jsx'
-  ]
+  ];
 
-	if (env === 'development') {
-		entry.unshift('react-hot-loader/patch', 'webpack-hot-middleware/client')
-	}
+  if (env === 'development') {
+    entry.unshift('react-hot-loader/patch', 'webpack-hot-middleware/client');
+  }
+  return entry;
+};
 
-	return entry
-}
-
-let config = {
+const config = {
   devtool: env === 'production' ? 'source-map' : 'cheap-source-map',
-	entry: getAppEntryPoints(env),
-	target: env === 'test' ? 'node' : 'web',
+  entry: getAppEntryPoints(env),
+  target: env === 'test' ? 'node' : 'web',
   resolve: {
     modules: ['src', 'node_modules'],
     extensions: ['.json', '.js', '.jsx', '.scss']
   },
-	output: {
-		path: PATHS.dist,
+  output: {
+    path: PATHS.dist,
     publicPath: '/',
     filename: env === 'production' ? 'bundle-[chunkhash].js' : 'bundle.js'
-	},
-	plugins: loadPlugins(env),
-	module: {
-		rules: loaders(env)
-	}
-}
+  },
+  plugins: loadPlugins(env),
+  module: {
+    rules: loaders(env)
+  }
+};
 
 export default config;
