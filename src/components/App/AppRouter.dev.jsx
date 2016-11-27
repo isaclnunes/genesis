@@ -18,7 +18,9 @@ class AppRouter extends React.Component {
     return (
       <Provider store={store}>
         <div>
-          <Router history={reduxHistory} routes={routes} />
+          <Router history={reduxHistory}>
+            {routes}
+          </Router>
           <DevTools />
         </div>
       </Provider>
