@@ -13,12 +13,9 @@ class App extends React.Component {
       <div>
         <NaviagtionBar />
         <div className="container">
-          <div className={cx(s['main-title'])}>
-            <h2>TP ReactJS Starter Kit</h2>
-            <Link to="/">Root</Link>&nbsp;
-            <Link to="/hello">Hello</Link>
+          <div className={cx(s['main-content'])}>
+            {this.props.children}
           </div>
-          {this.props.children}
         </div>
       </div>
     );
