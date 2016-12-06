@@ -9,7 +9,7 @@ exports[`HeaderNavigation HeaderNavigation renders correctly 1`] = `
         className="navbar-brand"
         onClick={[Function]}
         style={Object {}}>
-        ReactWeather - Buildit
+        ReactWeather
       </a>
       <button
         className="navbar-toggle collapsed"

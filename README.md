@@ -1,4 +1,4 @@
-# Build it - React Weather App
+# React Weather App
 
 ReactJS Single Page Application that displays a 5 day weather forecast for a given location.
 
