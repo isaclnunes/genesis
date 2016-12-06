@@ -1,11 +1,9 @@
-import { combineReducers } from 'redux';
-import { routerReducer as routing }                      from 'react-router-redux';
-import tweets             from './tweetsReducer';
-import user               from './userReducer';
+import { combineReducers }          from 'redux';
+import { routerReducer as routing } from 'react-router-redux';
+import weatherReducer               from './weatherReducer';
 
 const rootReducer = combineReducers({
-  tweets,
-  user,
+  weatherReducer,
   routing
 });
 

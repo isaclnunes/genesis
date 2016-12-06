@@ -1,21 +1,19 @@
-import React    from 'react';
-import { Link } from 'react-router';
-/* eslint import/no-extraneous-dependencies: 0 */
-import cx from 'classnames';
-import s from './styles/App.scss';
+import React            from 'react';
 
-import NaviagtionBar from '../NavBar/NavigationBar';
+import HeaderNavigation from '../Navigation/HeaderNavigation';
 
 /* eslint react/prefer-stateless-function: 0 */
+
+/**
+ * The App component
+ */
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <NaviagtionBar />
+      <div className="app-container">
+        <HeaderNavigation />
         <div className="container">
-          <div className={cx(s['main-content'])}>
-            {this.props.children}
-          </div>
+          {this.props.children}
         </div>
       </div>
     );

@@ -4,7 +4,6 @@ import promise                                   from 'redux-promise-middleware'
 import thunk                                     from 'redux-thunk';
 import createLogger                              from 'redux-logger';
 import rootReducer                               from '../reducers';
-import DevTools                                  from '../utils/DevTools/DevTools';
 
 const enhancer = compose(
   persistState(
@@ -12,15 +11,14 @@ const enhancer = compose(
       /[?&]debug_session=([^&#]+)\b/
     )
   ),
-  applyMiddleware(promise(), thunk, createLogger()),
-  DevTools.instrument()
+  applyMiddleware(promise(), thunk, createLogger())
 );
 
 export default function configureStore(initialState) {
   const store = createStore(rootReducer, initialState, enhancer);
   if (module.hot) {
     module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers/index').default) /* eslint global-require: 0 */
+      store.replaceReducer(require('../reducers').default) /* eslint global-require: 0 */
     );
   }
   return store;
