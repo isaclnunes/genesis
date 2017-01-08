@@ -7,7 +7,7 @@ const HeaderNavigation = () =>
   <Navbar fixedTop>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to="/about">Tiago Pina</Link>
+        <Link to="/">Tiago Pina</Link>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>

@@ -1,19 +1,15 @@
 /* eslint import/no-extraneous-dependencies: 0  */
 /* eslint import/imports-first: 0  */
 /* eslint no-undef: 0 */
-import reducer from '../weatherReducer';
+import reducer from '../bitcoinPriceReducer';
 
-describe('weather reducer', () => {
+describe('bitcoin reducer', () => {
   it('should return the initial state', () => {
     expect(
       reducer(undefined, {})
     ).toEqual(
       {
-        weather: {
-          city: null,
-          country: null,
-          list: []
-        },
+        bitcoinPrice: {},
         fetching: false,
         fetched: false,
         error: null
@@ -21,10 +17,10 @@ describe('weather reducer', () => {
     );
   });
 
-  it('should handle FETCH_WEATHER', () => {
+  it('should handle FETCH_CURRENT_BITCOIN_PRICE', () => {
     expect(
       reducer({}, {
-        type: 'FETCH_WEATHER',
+        type: 'FETCH_CURRENT_BITCOIN_PRICE',
         fetching: true
       })
     ).toEqual(
@@ -34,10 +30,10 @@ describe('weather reducer', () => {
     );
   });
 
-  it('should handle FETCH_WEATHER_REJECTED', () => {
+  it('should handle FETCH_CURRENT_BITCOIN_PRICE_REJECTED', () => {
     expect(
       reducer({}, {
-        type: 'FETCH_WEATHER_REJECTED',
+        type: 'FETCH_CURRENT_BITCOIN_PRICE_REJECTED',
         payload: 'some error'
       })
     ).toEqual(
@@ -48,18 +44,18 @@ describe('weather reducer', () => {
     );
   });
 
-  it('should handle FETCH_WEATHER_FULFILLED', () => {
+  it('should handle FETCH_CURRENT_BITCOIN_PRICE_FULFILLED', () => {
     expect(
       reducer({}, {
-        type: 'FETCH_WEATHER_FULFILLED',
-        payload: 'mock weather object'
+        type: 'FETCH_CURRENT_BITCOIN_PRICE_FULFILLED',
+        payload: 'mock bitcoin object'
       })
     ).toEqual(
       {
         fetching: false,
         fetched: true,
         error: null,
-        weather: 'mock weather object'
+        bitcoinPrice: 'mock bitcoin object'
       }
     );
   });

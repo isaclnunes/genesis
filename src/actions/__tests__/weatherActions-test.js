@@ -6,7 +6,7 @@ import thunk              from 'redux-thunk';
 import MockAdapter        from 'axios-mock-adapter';
 import axios              from 'axios';
 import { fetchWeather }   from '../weatherActions';
-import { API_METADATA }   from '../../../config/constants';
+import { WEATHER_API_METADATA }   from '../../../config/constants';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -35,7 +35,7 @@ describe('async actions', () => {
   it('creates FETCH_WEATHER_FULFILLED when fetching weather has been done', () => {
     const city = 'London';
     const mockAdapter = new MockAdapter(axios);
-    mockAdapter.onGet(`${API_METADATA.url}${city}&units=metric&appid=480d9bf861f9f8bf52ea3615a4b0e27d`)
+    mockAdapter.onGet(`${WEATHER_API_METADATA.url}${city}&units=metric&appid=480d9bf861f9f8bf52ea3615a4b0e27d`)
     .reply(200, mockWeatherObj);
 
     const expectedActions = [

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { API_METADATA } from '../../config/constants';
+import { WEATHER_API_METADATA } from '../../config/constants';
 
 function fetchWeatherRequest() {
   return {
@@ -26,7 +26,7 @@ function fetchWeatherRejected(error) {
 export function fetchWeather(city = 'London') {
   return (dispatch) => {
     dispatch(fetchWeatherRequest());
-    return axios.get(`${API_METADATA.url}${city}&units=metric&appid=480d9bf861f9f8bf52ea3615a4b0e27d`)
+    return axios.get(`${WEATHER_API_METADATA.url}${city}&units=metric&appid=480d9bf861f9f8bf52ea3615a4b0e27d`)
       .then(response => dispatch(fetchWeatherFulfilled(response.data)))
       .catch(err => dispatch(fetchWeatherRejected(err)));
   };

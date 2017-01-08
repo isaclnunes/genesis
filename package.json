@@ -26,7 +26,7 @@
     "serve": "npm run build-dev && cross-env NODE_ENV=development babel-node server.js",
     "serve-dist": "npm run build-prod && cross-env NODE_ENV=production babel-node server.js",
     "deploy": "npm run build-prod && firebase deploy",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.4",
