@@ -1,9 +1,13 @@
 import React  from 'react';
 
 const priceRenderer = (prices) => {
-  const priceForCurrency = prices.map((currency) => {
+  const currencies = Object.keys(prices);
+  const priceForCurrency = currencies.map((currency, index) => {
+    const { symbol } = prices[currency];
     return (
-      <li>{currency.code}</li>
+      <li key={index}>
+        1Ƀ = {prices[currency].rate_float} ({prices[currency].code}) - {symbol}
+      </li>
     );
   });
   return (

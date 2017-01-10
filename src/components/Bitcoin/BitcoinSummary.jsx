@@ -6,10 +6,12 @@ import priceRenderer from './priceRenderer';
 /* eslint semi: 0 */
 const BitcoinSummary = (summary) => {
   return (
-    <div className="container">
-      <p>Current price as of: {summary.time.updateduk}</p>
-      { /* priceRenderer(summary.bpi) */ }
-      <p>{summary.disclaimer}</p>
+    <div>
+      <div className="container">
+        <p>Current price as of: {summary.time.updateduk}</p>
+        {priceRenderer(summary.bpi)}
+      </div>
+      <footer>{summary.disclaimer}</footer>
     </div>
   )
 };
